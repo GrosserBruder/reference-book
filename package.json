@@ -1,0 +1,50 @@
+{
+  "name": "reference-book",
+  "version": "0.0.1",
+  "description": "React reference book base component",
+  "keywords": [
+    "react",
+    "reference book",
+    "ref book",
+    "refbook",
+    "grosser bruder",
+    "grossb"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "copy:styles": "copyfiles -f src/styles/** dist/styles && copyfiles -f src/components/styles/** dist/components/styles",
+    "prebuild": "npm run clean",
+    "build": "tsc -p tsconfig.prod.json",
+    "postbuild": "npm run copy:styles",
+    "pub": "npm run build && npm publish"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrosserBruder/reference-book.git"
+  },
+  "author": {
+    "name": "Ivan Leshchinsky",
+    "email": "falenangellll@yandex.ru"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrosserBruder/reference-book/issues"
+  },
+  "homepage": "https://github.com/GrosserBruder/reference-book#readme",
+  "devDependencies": {
+    "@grossb/react-data-table": "^0.4.1",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "copyfiles": "^2.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.4"
+  }
+}
