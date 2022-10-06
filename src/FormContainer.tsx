@@ -1,12 +1,5 @@
 import { Dialog, DialogContent } from "@mui/material";
-import { ReactNode } from "react";
-
-export type FormContainerProps = {
-  className?: string
-  children?: ReactNode
-  open: boolean,
-  onClose?: () => void,
-}
+import { FormContainerProps } from "./RefBookLayout";
 
 export function FormContainer(props: FormContainerProps) {
   const { open, children, onClose, className } = props;
@@ -15,6 +8,7 @@ export function FormContainer(props: FormContainerProps) {
     open={open}
     onClose={onClose}
     className={className}
+    fullWidth
   >
     <DialogContent>
       {children}

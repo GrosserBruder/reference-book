@@ -1,5 +1,5 @@
 {
-  "name": "reference-book",
+  "name": "@grossb/reference-book",
   "version": "0.0.1",
   "description": "React reference book base component",
   "keywords": [
@@ -37,8 +37,20 @@
     "url": "https://github.com/GrosserBruder/reference-book/issues"
   },
   "homepage": "https://github.com/GrosserBruder/reference-book#readme",
+  "peerDependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@grossb/react-data-table": "^0.4.3",
+    "@mui/icons-material": "^5.8.2",
+    "@mui/lab": "^5.0.0-alpha.75",
+    "@mui/material": "^5.8.7",
+    "classnames": "^2.3.1",
+    "react": ">=17.0.1",
+    "react-dom": ">=17.0.1",
+    "sass": "latest"
+  },
   "devDependencies": {
-    "@grossb/react-data-table": "^0.4.1",
+    "@grossb/react-data-table": "^0.4.3",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "copyfiles": "^2.4.1",
