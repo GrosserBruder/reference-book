@@ -16,7 +16,7 @@
     "prebuild": "npm run clean",
     "build": "tsc -p tsconfig.prod.json",
     "postbuild": "npm run copy:styles",
-    "pub": "npm run build && npm publish"
+    "pub": "npm run build && npm publish --access=public"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
