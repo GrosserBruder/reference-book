@@ -1,0 +1,16 @@
+@mixin fullWidthAndScroll {
+  overflow: auto;
+  width: 100%;
+}
+
+.ref-book-layout {
+  @include fullWidthAndScroll();
+
+  &__data-table {
+    @include fullWidthAndScroll();
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

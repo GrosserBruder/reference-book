@@ -1,0 +1,11 @@
+@mixin scrollAndCentered {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+}
+
+.ref-book {
+  @include scrollAndCentered();
+}
