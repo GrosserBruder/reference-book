@@ -1,6 +1,6 @@
 import { DataItem, DataTable, DataTableProps, SortingColumnOrder, AllFilterData } from "@grossb/react-data-table"
-import { memo, ReactNode, useCallback, useMemo, useState } from "react"
-import RefBookLayout, { RefBookLayoutProps } from "./RefBookLayout"
+import { FC, memo, useCallback, useState } from "react"
+import DefaultRefBookLayout, { RefBookLayoutProps } from "./RefBookLayout"
 import "./styles/RefBook.scss"
 
 export type FormProps = {
@@ -16,12 +16,10 @@ export type ToolbarProps<T extends DataItem = DataItem> = {
   sortingColumnOrder?: any;
 }
 
-export type Toolbar<T extends DataItem = DataItem> = (props: ToolbarProps<T>) => ReactNode
-export type RefBookForm = (props: FormProps) => ReactNode
-
-export type RefBookProps<T extends DataItem = DataItem> = DataTableProps<T> & Pick<RefBookLayoutProps, "FormContainer"> & {
-  form?: RefBookForm
-  toolbar?: Toolbar<T>
+export type RefBookProps<T extends DataItem = DataItem> = DataTableProps<T> & {
+  Form?: FC<FormProps>
+  Toolbar?: FC<ToolbarProps<T>>
+  RefBookLayout?: FC<RefBookLayoutProps>
   formOpen?: boolean
   onCloseForm?: () => void,
 }
@@ -30,8 +28,8 @@ const MemoDataTable = memo(DataTable) as typeof DataTable
 
 export default function RefBook<T extends DataItem = DataItem>(props: RefBookProps<T>) {
   const {
-    form, onSortChange, onFilterChange, onCloseForm, FormContainer,
-    onSelectChange, toolbar, formOpen, ...otherProps
+    Form, onSortChange, onFilterChange, onCloseForm, RefBookLayout = DefaultRefBookLayout,
+    onSelectChange, Toolbar, formOpen, ...otherProps
   } = props;
 
   const [sortingColumnOrder, setSortingColumnOrder] = useState<SortingColumnOrder<T> | undefined>()
@@ -53,48 +51,27 @@ export default function RefBook<T extends DataItem = DataItem>(props: RefBookPro
     onSelectChange?.(selectedItems)
   }, [onSelectChange])
 
-  const memoToolbar = useMemo(() => {
-    const props: ToolbarProps<T> = {
-      selectedData,
-      filterData,
-      sortingColumnOrder,
-    }
-    return toolbar?.(props)
-  }, [
-    toolbar,
-    selectedData,
-    filterData,
-    sortingColumnOrder
-  ])
-
-  const memoForm = useMemo(() => {
-    const props: FormProps = {
-      selectedData,
-      filterData,
-      sortingColumnOrder,
-      onClose: onCloseForm,
-    }
-
-    return form?.(props)
-  }, [
-    form,
-    onCloseForm,
-    selectedData,
-    filterData,
-    sortingColumnOrder
-  ])
-
   return <RefBookLayout
     className="ref-book"
-    toolbar={memoToolbar}
-    form={memoForm}
     formOpen={formOpen}
     onCloseForm={onCloseForm}
-    FormContainer={FormContainer}
+    toolbar={Toolbar
+      ? <Toolbar
+        selectedData={selectedData}
+        filterData={filterData}
+        sortingColumnOrder={sortingColumnOrder}
+      />
+      : undefined}
+    form={Form
+      ? <Form
+        selectedData={selectedData}
+        filterData={filterData}
+        sortingColumnOrder={sortingColumnOrder}
+        onClose={onCloseForm}
+      /> : undefined
+    }
     dataTable={
       <MemoDataTable<T>
-        fixedTopTitle
-        sortable
         onSortChange={onSortChangeHandler}
         onFilterChange={onFilterChangeHandler}
         onSelectChange={onSelectChangeHandler}
