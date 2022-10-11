@@ -19,8 +19,14 @@
   }
 
   &__wrapper {
+    @include fullWidthAndScroll();
+
     display: flex;
     flex-direction: column;
-    overflow: auto;
+  }
+
+  &__toolbar {
+    display: flex;
+    justify-content: center;
   }
 }

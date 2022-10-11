@@ -1,4 +1,5 @@
 import { DataItem } from "@grossb/react-data-table"
+import React from "react"
 import {
   RefBook,
   RefBookProps,
@@ -13,6 +14,7 @@ export function TestRefBook<T extends DataItem = DataItem>(props: TestRefBookPro
     filterable
     selectable
     striped
+    fixedTopTitle
     {...props}
   />
 }

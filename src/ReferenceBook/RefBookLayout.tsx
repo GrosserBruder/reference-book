@@ -33,7 +33,7 @@ export default function RefBookLayout(props: RefBookLayoutProps) {
 
   return <div className={classnames("ref-book-layout", className)}>
     <div className="ref-book-layout__wrapper">
-      <div>
+      <div className="ref-book-layout__toolbar">
         {toolbar}
       </div>
       <div className="ref-book-layout__data-table">
