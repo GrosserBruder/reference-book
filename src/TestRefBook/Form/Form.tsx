@@ -1,4 +1,5 @@
 import { Button, FormControl, Stack, TextField } from '@mui/material';
+import React from 'react';
 import { Field, Form, FormRenderProps, FormProps } from 'react-final-form';
 
 function FormFieldWrapper(Component: any) {
@@ -82,7 +83,7 @@ function TestForm(props: TestFormProps) {
         component={TextFieldWrapped}
         disabled={disabled || submitting}
       />
-      <Field
+      {/* <Field
         label="createdDate"
         name="createdDate"
         component={TextFieldWrapped}
@@ -165,7 +166,7 @@ function TestForm(props: TestFormProps) {
         name="description"
         component={TextFieldWrapped}
         disabled={disabled || submitting}
-      />
+      /> */}
 
       <Button type="submit" variant="contained" disabled={disabled || submitting}>Создать</Button>
       <Button
@@ -180,6 +181,6 @@ function TestForm(props: TestFormProps) {
   </form >
 }
 
-const DefaultDhlTypeRefBookForm = (props: FormProps & TestFormProps) => <Form {...props} render={TestForm} />
+const DefaultDhlTypeRefBookForm = (props: FormProps & TestFormProps) => <div><div>Test title</div><Form {...props} render={TestForm} /></div>
 
 export default DefaultDhlTypeRefBookForm;

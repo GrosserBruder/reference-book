@@ -2,7 +2,7 @@ import { DataItem } from "@grossb/react-data-table"
 import {
   RefBook,
   RefBookProps,
-} from "@grossb/reference-book"
+} from "../ReferenceBook"
 
 
 export type TestRefBookProps<T extends DataItem = DataItem> = RefBookProps<T>

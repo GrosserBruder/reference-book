@@ -3,5 +3,9 @@
 
   .refbook-toolbar-button {
     background-color: white;
+
+    & + & {
+      margin-left: 10px;
+    }
   }
 }
