@@ -1,4 +1,4 @@
-export { default as FormContainer } from "./FormContainer"
+export { default as ModalFormContainer } from "./ModalFormContainer"
 export { default as RefBook } from "./RefBook"
 export { default as RefBookLayout } from "./RefBookLayout"
 

@@ -6,11 +6,27 @@
 .ref-book-layout {
   @include fullWidthAndScroll();
 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
   &__data-table {
     @include fullWidthAndScroll();
 
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &__wrapper {
+    @include fullWidthAndScroll();
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__toolbar {
+    display: flex;
+    justify-content: center;
   }
 }
