@@ -23,6 +23,9 @@
     "postbuild": "npm run copy:styles",
     "pub": "npm run build && npm publish --access=public"
   },
+  "files": [
+    "dist/**"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",

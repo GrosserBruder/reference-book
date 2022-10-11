@@ -24,8 +24,6 @@
     "src/ReferenceBook"
   ],
   "exclude": [
-    "node_modules",
-    "public",
-    "src"
+    "node_modules"
   ]
 }
