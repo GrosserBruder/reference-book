@@ -1,6 +1,6 @@
 {
   "name": "@grossb/reference-book",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
     "@grossb/react-data-table": "^0.4.3",
     "classnames": "^2.3.2",
