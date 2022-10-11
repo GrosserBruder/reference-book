@@ -1,61 +1,51 @@
 {
   "name": "@grossb/reference-book",
-  "version": "0.0.2",
-  "description": "React reference book base component",
-  "keywords": [
-    "react",
-    "reference book",
-    "ref book",
-    "refbook",
-    "grosser bruder",
-    "grossb"
-  ],
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@grossb/react-data-table": "^0.4.3",
+    "classnames": "^2.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "main": "dist/index,js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "start": "react-scripts start",
+    "build-project": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "clean": "rimraf dist",
-    "copy:styles": "copyfiles -f src/styles/** dist/styles && copyfiles -f src/components/styles/** dist/components/styles",
+    "copy:styles": "copyfiles -f src/ReferenceBook/styles/** dist/styles && copyfiles -f src/ReferenceBook/components/styles/** dist/components/styles",
     "prebuild": "npm run clean",
     "build": "tsc -p tsconfig.prod.json",
     "postbuild": "npm run copy:styles",
     "pub": "npm run build && npm publish --access=public"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GrosserBruder/reference-book.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "author": {
-    "name": "Ivan Leshchinsky",
-    "email": "falenangellll@yandex.ru"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GrosserBruder/reference-book/issues"
-  },
-  "homepage": "https://github.com/GrosserBruder/reference-book#readme",
-  "peerDependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@grossb/react-data-table": "^0.4.3",
-    "@mui/icons-material": "^5.8.2",
-    "@mui/lab": "^5.0.0-alpha.75",
-    "@mui/material": "^5.8.7",
-    "classnames": "^2.3.1",
-    "react": ">=17.0.1",
-    "react-dom": ">=17.0.1",
-    "sass": "latest"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@grossb/react-data-table": "^0.4.3",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "copyfiles": "^2.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.8.4"
   }
