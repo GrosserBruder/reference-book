@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
+import { FC, ReactNode } from "react"
 import classnames from "classnames"
-import FormContainer from "./FormContainer"
+import ModalFormContainer from "./ModalFormContainer"
 import "./styles/RefBookLayout.scss"
 
 export type FormContainerProps = {
@@ -17,17 +17,28 @@ export type RefBookLayoutProps = {
   form?: ReactNode
   formOpen?: boolean,
   onCloseForm?: () => void,
+  FormContainer?: FC<FormContainerProps>
 }
 
 export default function RefBookLayout(props: RefBookLayoutProps) {
-  const { form, dataTable, className, toolbar, formOpen = false, onCloseForm } = props
+  const {
+    form,
+    dataTable,
+    className,
+    toolbar,
+    formOpen = false,
+    onCloseForm,
+    FormContainer = ModalFormContainer
+  } = props
 
   return <div className={classnames("ref-book-layout", className)}>
-    <div>
-      {toolbar}
-    </div>
-    <div className="ref-book-layout__data-table">
-      {dataTable}
+    <div className="ref-book-layout__wrapper">
+      <div>
+        {toolbar}
+      </div>
+      <div className="ref-book-layout__data-table">
+        {dataTable}
+      </div>
     </div>
     <FormContainer
       className="ref-book-layout__form"
