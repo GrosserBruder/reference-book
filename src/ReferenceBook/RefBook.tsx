@@ -3,8 +3,8 @@ import { FC, memo, useCallback, useState } from "react"
 import DefaultRefBookLayout, { FormContainerProps, RefBookLayoutProps } from "./RefBookLayout"
 import "./styles/RefBook.scss"
 
-export type FormProps = {
-  selectedData: DataItem[]
+export type FormProps<T extends DataItem = DataItem> = {
+  selectedData: T[]
   filterData?: AllFilterData
   sortingColumnOrder?: any
   onClose?: () => void
