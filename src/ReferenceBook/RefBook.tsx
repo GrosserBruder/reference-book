@@ -17,7 +17,7 @@ export type ToolbarProps<T extends DataItem = DataItem> = {
 }
 
 export type RefBookProps<T extends DataItem = DataItem> = DataTableProps<T> & {
-  Form?: FC<FormProps>
+  Form?: FC<FormProps<T>>
   Toolbar?: FC<ToolbarProps<T>>
   RefBookLayout?: FC<RefBookLayoutProps>
   formOpen?: boolean
